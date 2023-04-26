@@ -16,7 +16,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === null) {
         alert("You cancelled the game");
         return;
-    }
+    } 
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     if (playerSelection !== "Rock" && playerSelection !== "Paper" && playerSelection !== "Scissors") {
         alert("Please enter one of three options");
