@@ -126,14 +126,14 @@ function game() {
 
     console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
     if (playerScore > computerScore) {
-        console.log("You won.\nFor another game enter game() to the console");
+        console.log("You won.\nFor another game enter game() to the console or refresh the page");
     } else if (computerScore > playerScore) {
-        console.log("You lost.\nFor another game enter game() to the console"); 
+        console.log("You lost.\nFor another game enter game() to the console or refresh the page"); 
     } else if (computerScore === playerScore) {
-        console.log("It's a draw.\nFor another game enter game() to the console");
+        console.log("It's a draw.\nFor another game enter game() to the console or refresh the page");
     } 
 }
 
-alert("If you want to start a game Rock Paper Scissors please enter 'game()' to the console");
+alert("Game Rock Paper Scissors starts. Get ready");
 
 game();
