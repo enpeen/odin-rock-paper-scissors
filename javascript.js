@@ -38,13 +38,13 @@ function game() {
                 return "Computer: Paper\nYou: Paper\nDraw";
             } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
                 computerScore++;
-                return "Computer: Scissors\nYou: Paper\nYou lose. Scissors beats paper";
+                return "Computer: Scissors\nYou: Paper\nYou lose. Scissors beats Paper";
             } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
                 computerScore++;
                 return "Computer: Rock\nYou: Scissors\nYou lose. Rock beats Scissors";
             } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
                 playerScore++;
-                return "Computer: Paper\nYou: Scissors\nYou win. Scissors beats paper";
+                return "Computer: Paper\nYou: Scissors\nYou win. Scissors beats Paper";
             } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
                 return "Computer: Scissors\nYou: Scissors\nDraw";
             }  
