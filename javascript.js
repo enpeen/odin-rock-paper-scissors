@@ -1,4 +1,4 @@
-function getComputerChoice() {
+function getComputerChoice() { 
     let random = Math.random();
     let result;
     if (random > 0.66) {
