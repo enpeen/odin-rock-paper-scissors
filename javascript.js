@@ -92,11 +92,11 @@ function game() {
     } else {
         console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
     if (playerScore > computerScore) {
-        console.log("You won.\nFor another game enter game() to the console or refresh the page");
+        console.log("You won.\nFor another game enter game() to the console");
     } else if (computerScore > playerScore) {
-        console.log("You lost.\nFor another game enter game() to the console or refresh the page"); 
+        console.log("You lost.\nFor another game enter game() to the console"); 
     } else if (computerScore === playerScore) {
-        console.log("It's a draw.\nFor another game enter game() to the console or refresh the page");
+        console.log("It's a draw.\nFor another game enter game() to the console");
     }
     }
 }
