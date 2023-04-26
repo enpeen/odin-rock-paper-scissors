@@ -51,6 +51,38 @@ function game() {
         }
     } 
 
+    let roundNumber = 0;
+    function play() {
+        roundNumber++;
+        playerSelection = prompt(`Game Rock Paper Scissors round ${roundNumber}. Please enter your pick`);
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(`You ${playerScore}:${computerScore} Computer`);
+    }
+
+
+    play();
+    if (playerSelection === null) {
+        return;
+    } 
+    play();
+    if (playerSelection === null) {
+        return;
+    } 
+    play();
+    if (playerSelection === null) {
+        return;
+    } 
+    play();
+    if (playerSelection === null) {
+        return;
+    } 
+    play();
+    if (playerSelection === null) {
+        return;
+    } 
+
+    /*
     playerSelection = prompt("Game Rock Paper Scissors round 1. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
@@ -58,6 +90,7 @@ function game() {
         return;
     }
     console.log(`You ${playerScore}:${computerScore} Computer`);
+
     playerSelection = prompt("Game Rock Paper Scissors round 2. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
@@ -65,6 +98,7 @@ function game() {
         return;
     }
     console.log(`You ${playerScore}:${computerScore} Computer`);
+
     playerSelection = prompt("Game Rock Paper Scissors round 3. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
@@ -72,6 +106,7 @@ function game() {
         return;
     }
     console.log(`You ${playerScore}:${computerScore} Computer`);
+
     playerSelection = prompt("Game Rock Paper Scissors round 4. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
@@ -79,6 +114,7 @@ function game() {
         return;
     }
     console.log(`You ${playerScore}:${computerScore} Computer`);
+
     playerSelection = prompt("Game Rock Paper Scissors round 5. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
@@ -86,19 +122,18 @@ function game() {
         return;
     }
     console.log(`You ${playerScore}:${computerScore} Computer`);
+    */
 
-    if (playerSelection === null) {
-        return;
-    } else {
-        console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
+    console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
     if (playerScore > computerScore) {
         console.log("You won.\nFor another game enter game() to the console");
     } else if (computerScore > playerScore) {
         console.log("You lost.\nFor another game enter game() to the console"); 
     } else if (computerScore === playerScore) {
         console.log("It's a draw.\nFor another game enter game() to the console");
-    }
-    }
+    } 
 }
 
 alert("If you want to start a game Rock Paper Scissors please enter 'game()' to the console");
+
+game();
