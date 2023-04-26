@@ -101,4 +101,4 @@ function game() {
     }
 }
 
-alert("If you want to start a game Rock Paper Scissors please enter 'game()' to the console");
+alert("If you want to start a game Rock Paper Scissors please enter 'game()' in the console");
