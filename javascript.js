@@ -54,20 +54,25 @@ function game() {
     playerSelection = prompt("Game Rock Paper Scissors round 1. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    console.log(`You ${playerScore}:${computerScore} Computer`);
     playerSelection = prompt("Game Rock Paper Scissors round 2. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    console.log(`You ${playerScore}:${computerScore} Computer`);
     playerSelection = prompt("Game Rock Paper Scissors round 3. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    console.log(`You ${playerScore}:${computerScore} Computer`);
     playerSelection = prompt("Game Rock Paper Scissors round 4. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    console.log(`You ${playerScore}:${computerScore} Computer`);
     playerSelection = prompt("Game Rock Paper Scissors round 5. Please enter your pick");
     computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
+    console.log(`You ${playerScore}:${computerScore} Computer`);
     
-    console.log(`Game is finished. Score is: You ${playerScore}:${computerScore} Computer`);
+    console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
     if (playerScore > computerScore) {
         console.log("You won");
     } else if (computerScore > playerScore) {
