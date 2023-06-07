@@ -38,6 +38,16 @@ function game() {
                 const newGame = document.createElement("button");
                 newGame.textContent = "New game";
                 finalScore.appendChild(newGame);
+                newGame.addEventListener("click", function() {
+                    rock.disabled = false;
+                    paper.disabled = false;
+                    scissors.disabled = false;
+                    finalScore.textContent = undefined;
+                    score.textContent = "You 0:0 Computer";
+                    roundResult.textContent = undefined;
+                    playerScore = 0;
+                    computerScore = 0;
+                })
             }
         }
 
