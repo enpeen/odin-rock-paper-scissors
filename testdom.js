@@ -26,11 +26,11 @@ function game() {
             if (playerScore == 5 || computerScore == 5) {
                 finalScore.textContent = `Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`;
                 if (playerScore > computerScore) {
-                    finalScore.textContent += "You won.\nFor another game enter game() to the console or refresh the page";
+                    finalScore.textContent += "You won.\nFor another game press the 'New game' button";
                 } else if (computerScore > playerScore) {
-                    finalScore.textContent += "You lost.\nFor another game enter game() to the console or refresh the page"; 
+                    finalScore.textContent += "You lost.\nFor another game press the 'New game' button";
                 } else if (computerScore === playerScore) {
-                    finalScore.textContent += "It's a draw.\nFor another game enter game() to the console or refresh the page";
+                    finalScore.textContent += "It's a draw.\nFor another game press the 'New game' button";
                 }
                 rock.disabled = true;
                 paper.disabled = true;
@@ -107,8 +107,6 @@ function game() {
     */
 
 
-    
-
     const rock = document.getElementById("rock");
     rock.addEventListener("click", function() {
         roundResult.textContent = playRound("Rock", getComputerChoice);
@@ -136,3 +134,5 @@ alert("Game Rock Paper Scissors starts. Get ready");
 
 game();
 
+
+console.log("ssss\nssss")
