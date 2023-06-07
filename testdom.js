@@ -32,40 +32,55 @@ function game() {
                 } else if (computerScore === playerScore) {
                     finalScore.textContent += "It's a draw.\nFor another game enter game() to the console or refresh the page";
                 }
+                rock.disabled = true;
+                paper.disabled = true;
+                scissors.disabled = true;
+                const newGame = document.createElement("button");
+                newGame.textContent = "New game";
+                finalScore.appendChild(newGame);
             }
         }
 
         if (playerSelection === "Rock" && computerSelection === "Rock") {
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Rock\nYou: Rock\nDraw\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Paper\nYou: Rock\nYou lose. Paper beats Rock\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Scissors\nYou: Rock\nYou win. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Rock") {
             playerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Rock\nYou: Paper\nYou win. Paper beats Rock"\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Paper") {
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Paper\nYou: Paper\nDraw"\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Scissors\nYou: Paper\nYou lose. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Rock\nYou: Scissors\nYou lose. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore++;
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Paper\nYou: Scissors\nYou win. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
+            score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             return `Computer: Scissors\nYou: Scissors\nDraw\nYou ${playerScore}:${computerScore} Computer`;
         }   
@@ -100,6 +115,9 @@ function game() {
     });
 
     const roundResult = document.getElementById("roundResult");
+
+    const score = document.getElementById("score");
+    score.textContent = "You 0:0 Computer";
     
     const finalScore = document.getElementById("finalScore");
 }
