@@ -21,31 +21,54 @@ function game() {
     function playRound(playerSelection, computerSelection) {
         computerSelection = getComputerChoice();
         roundNumber++;
+
+        function results() {
+            if (playerScore == 5 || computerScore == 5) {
+                finalScore.textContent = `Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`;
+                if (playerScore > computerScore) {
+                    finalScore.textContent += "You won.\nFor another game enter game() to the console or refresh the page";
+                } else if (computerScore > playerScore) {
+                    finalScore.textContent += "You lost.\nFor another game enter game() to the console or refresh the page"; 
+                } else if (computerScore === playerScore) {
+                    finalScore.textContent += "It's a draw.\nFor another game enter game() to the console or refresh the page";
+                }
+            }
+        }
+
         if (playerSelection === "Rock" && computerSelection === "Rock") {
+            results();
             return `Computer: Rock\nYou: Rock\nDraw\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore++;
+            results();
             return `Computer: Paper\nYou: Rock\nYou lose. Paper beats Rock\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore++;
+            results();
             return `Computer: Scissors\nYou: Rock\nYou win. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Rock") {
             playerScore++;
+            results();
             return `Computer: Rock\nYou: Paper\nYou win. Paper beats Rock"\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Paper") {
+            results();
             return `Computer: Paper\nYou: Paper\nDraw"\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore++;
+            results();
             return `Computer: Scissors\nYou: Paper\nYou lose. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore++;
+            results();
             return `Computer: Rock\nYou: Scissors\nYou lose. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore++;
+            results();
             return `Computer: Paper\nYou: Scissors\nYou win. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
         } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
+            results();
             return `Computer: Scissors\nYou: Scissors\nDraw\nYou ${playerScore}:${computerScore} Computer`;
-        }  
+        }   
     } 
 
     function cancelGame() {
@@ -58,15 +81,7 @@ function game() {
     }
     */
 
-    
-    console.log(`Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`);
-    if (playerScore > computerScore) {
-        console.log("You won.\nFor another game enter game() to the console or refresh the page");
-    } else if (computerScore > playerScore) {
-        console.log("You lost.\nFor another game enter game() to the console or refresh the page"); 
-    } else if (computerScore === playerScore) {
-        console.log("It's a draw.\nFor another game enter game() to the console or refresh the page");
-    } 
+
     
 
     const rock = document.getElementById("rock");
@@ -76,15 +91,17 @@ function game() {
 
     const paper = document.getElementById("paper");
     paper.addEventListener("click", function() {
-        console.log(playRound("Paper", getComputerChoice));
+        roundResult.textContent = playRound("Paper", getComputerChoice);
     });
 
     const scissors = document.getElementById("scissors");
     scissors.addEventListener("click", function() {
-        console.log(playRound("Scissors", getComputerChoice));
+        roundResult.textContent = playRound("Scissors", getComputerChoice);
     });
 
     const roundResult = document.getElementById("roundResult");
+    
+    const finalScore = document.getElementById("finalScore");
 }
 
 alert("Game Rock Paper Scissors starts. Get ready");
