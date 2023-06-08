@@ -16,7 +16,7 @@ function game() {
     let computerScore = 0;
     let roundNumber = 1;
     let playerSelection;
-
+    let message;
 
     function playRound(playerSelection, computerSelection) {
         computerSelection = getComputerChoice();
@@ -24,13 +24,13 @@ function game() {
 
         function results() {
             if (playerScore == 5 || computerScore == 5) {
-                finalScore.textContent = `Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`;
+                finalScore.textContent = `Game is finished. Final score is: You ${playerScore}:${computerScore} Computer\n`;
                 if (playerScore > computerScore) {
-                    finalScore.textContent += "You won.\nFor another game press the 'New game' button";
+                    finalScore.textContent += "Congratulations, You won.\nFor another game press the 'New game' button\n";
                 } else if (computerScore > playerScore) {
-                    finalScore.textContent += "You lost.\nFor another game press the 'New game' button";
+                    finalScore.textContent += "You lost.\nFor another game press the 'New game' button\n";
                 } else if (computerScore === playerScore) {
-                    finalScore.textContent += "It's a draw.\nFor another game press the 'New game' button";
+                    finalScore.textContent += "It's a draw.\nFor another game press the 'New game' button\n";
                 }
                 rock.disabled = true;
                 paper.disabled = true;
@@ -54,45 +54,45 @@ function game() {
         if (playerSelection === "Rock" && computerSelection === "Rock") {
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Rock\nYou: Rock\nDraw\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Rock\nYou: Rock\nDraw`;
         } else if (playerSelection === "Rock" && computerSelection === "Paper") {
             computerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Paper\nYou: Rock\nYou lose. Paper beats Rock\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Paper\nYou: Rock\nYou lose. Paper beats Rock`;
         } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
             playerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Scissors\nYou: Rock\nYou win. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Scissors\nYou: Rock\nYou win. Rock beats Scissors`;
         } else if (playerSelection === "Paper" && computerSelection === "Rock") {
             playerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Rock\nYou: Paper\nYou win. Paper beats Rock"\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Rock\nYou: Paper\nYou win. Paper beats Rock`;
         } else if (playerSelection === "Paper" && computerSelection === "Paper") {
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Paper\nYou: Paper\nDraw"\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Paper\nYou: Paper\nDraw`;
         } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
             computerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Scissors\nYou: Paper\nYou lose. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Scissors\nYou: Paper\nYou lose. Scissors beats Paper`;
         } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Rock\nYou: Scissors\nYou lose. Rock beats Scissors\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Rock\nYou: Scissors\nYou lose. Rock beats Scissors\n`;
         } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Paper\nYou: Scissors\nYou win. Scissors beats Paper\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Paper\nYou: Scissors\nYou win. Scissors beats Paper\n`;
         } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            return `Computer: Scissors\nYou: Scissors\nDraw\nYou ${playerScore}:${computerScore} Computer`;
+            return `Computer: Scissors\nYou: Scissors\nDraw\n`;
         }   
     } 
 
@@ -110,16 +110,19 @@ function game() {
     const rock = document.getElementById("rock");
     rock.addEventListener("click", function() {
         roundResult.textContent = playRound("Rock", getComputerChoice);
+        roundResult.style.whiteSpace = "pre";
     });
 
     const paper = document.getElementById("paper");
     paper.addEventListener("click", function() {
         roundResult.textContent = playRound("Paper", getComputerChoice);
+        roundResult.style.whiteSpace = "pre";
     });
 
     const scissors = document.getElementById("scissors");
     scissors.addEventListener("click", function() {
         roundResult.textContent = playRound("Scissors", getComputerChoice);
+        roundResult.style.whiteSpace = "pre";
     });
 
     const roundResult = document.getElementById("roundResult");
@@ -128,6 +131,7 @@ function game() {
     score.textContent = "You 0:0 Computer";
     
     const finalScore = document.getElementById("finalScore");
+    finalScore.setAttribute("style", "white-space: pre;");
 }
 
 alert("Game Rock Paper Scissors starts. Get ready");
@@ -136,3 +140,9 @@ game();
 
 
 console.log("ssss\nssss")
+
+/* line break possible solutions
+multiple divs
+max width 
+https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
+*/
