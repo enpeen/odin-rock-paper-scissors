@@ -3,9 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #roundResult {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buttons {
+            margin: 5px;
+        }
+
+        #paper {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #score {
+            margin: 10px;
+        }
+
+        #finalScore {
+            margin-top: 10px;
+        }
+
+        #finalScore3 {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Rock Paper Scissors</h1>
+
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+    <div id="score"></div>
+
+    <div id="roundResult1"></div>
+    <div id="roundResult2"></div>
+    <div id="roundResult3"></div>
+
+    <div id="finalScore"></div>
+    <div id="finalScore1"></div>
+    <div id="finalScore2"></div>
+    <div id="finalScore3"></div>
 </body>
 </html>
