@@ -16,7 +16,6 @@ function game() {
     let computerScore = 0;
     let roundNumber = 1;
     let playerSelection;
-    let message;
 
     function playRound(playerSelection, computerSelection) {
         computerSelection = getComputerChoice();
@@ -27,14 +26,12 @@ function game() {
                 finalScore.textContent = `Game is finished. Final score is: You ${playerScore}:${computerScore} Computer`;
                 if (playerScore > computerScore) {
                     finalScore1.textContent = "Congratulations, You won.";
-                    finalScore2.textContent = "For another game press the 'New game' button";
                 } else if (computerScore > playerScore) {
                     finalScore1.textContent = "Sorry, you lost.";
-                    finalScore2.textContent = "For another game press the 'New game' button";
                 } else if (computerScore === playerScore) {
                     finalScore1.textContent = "It's a draw";
-                    finalScore2.textContent = "For another game press the 'New game' button";
                 }
+                finalScore2.textContent = "For another game press the 'New game' button";
                 rock.disabled = true;
                 paper.disabled = true;
                 scissors.disabled = true;
@@ -59,67 +56,31 @@ function game() {
             }
         }
 
-        if (playerSelection === "Rock" && computerSelection === "Rock") {
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Rock";
-            roundResult2.textContent = "You: Rock";
-            roundResult3.textContent = "Draw";
-        } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-            computerScore++;
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Paper";
-            roundResult2.textContent = "You: Rock";
-            roundResult3.textContent = "You lose. Paper beats rock";
-        } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+        if (playerSelection === "Rock" && computerSelection === "Scissors" ||
+        playerSelection === "Paper" && computerSelection === "Rock" ||
+        playerSelection === "Scissors" && computerSelection === "Paper") {
             playerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            roundResult1.textContent = "Computer: Scissors";
-            roundResult2.textContent = "You: Rock";
-            roundResult3.textContent = "You win. Rock beats Scissors";
-        } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-            playerScore++;
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Rock";
-            roundResult2.textContent = "You: Paper";
-            roundResult3.textContent = "You win. Paper beats Rock";
-        } else if (playerSelection === "Paper" && computerSelection === "Paper") {
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Paper";
-            roundResult2.textContent = "You: Paper";
-            roundResult3.textContent = "Draw";
-        } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+            roundResult1.textContent = "Computer: " + computerSelection;
+            roundResult2.textContent = "You: " + playerSelection;
+            roundResult3.textContent = "You win. " + playerSelection + " beats " + computerSelection;
+        } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
+          playerSelection === "Paper" && computerSelection === "Scissors" ||
+          playerSelection === "Scissors" && computerSelection === "Rock") {
             computerScore++;
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            roundResult1.textContent = "Computer: Scissors";
-            roundResult2.textContent = "You: Paper";
-            roundResult3.textContent = "You lose. Scissors beats Paper";
-        } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-            computerScore++;
+            roundResult1.textContent = "Computer: " + computerSelection;
+            roundResult2.textContent = "You: " + playerSelection;
+            roundResult3.textContent = "You lose. " + computerSelection + " beats " + playerSelection;
+        } else if (playerSelection === computerSelection) {
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
-            roundResult1.textContent = "Computer: Rock";
-            roundResult2.textContent = "You: Scissors";
-            roundResult3.textContent = "You lose. Rock beats Scissors";
-        } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-            playerScore++;
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Paper";
-            roundResult2.textContent = "You: Scissors";
-            roundResult3.textContent = "You win. Scissors beats Paper";
-        } else if (playerSelection === "Scissors" && computerSelection === "Scissors") {
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: Scissors";
-            roundResult2.textContent = "You: Scissors";
+            roundResult1.textContent = "Computer: " + computerSelection;
+            roundResult2.textContent = "You: " + playerSelection;
             roundResult3.textContent = "Draw";
-        }   
+        }
     } 
 
     const rock = document.getElementById("rock");
