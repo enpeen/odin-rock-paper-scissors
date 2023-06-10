@@ -65,22 +65,20 @@ function game() {
             roundResult1.textContent = "Computer: " + computerSelection;
             roundResult2.textContent = "You: " + playerSelection;
             roundResult3.textContent = "You win. " + playerSelection + " beats " + computerSelection;
-        } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
-          playerSelection === "Paper" && computerSelection === "Scissors" ||
-          playerSelection === "Scissors" && computerSelection === "Rock") {
-            computerScore++;
-            score.textContent = `You ${playerScore}:${computerScore} Computer`;
-            results();
-            roundResult1.textContent = "Computer: " + computerSelection;
-            roundResult2.textContent = "You: " + playerSelection;
-            roundResult3.textContent = "You lose. " + computerSelection + " beats " + playerSelection;
         } else if (playerSelection === computerSelection) {
             score.textContent = `You ${playerScore}:${computerScore} Computer`;
             results();
             roundResult1.textContent = "Computer: " + computerSelection;
             roundResult2.textContent = "You: " + playerSelection;
             roundResult3.textContent = "Draw";
-        }
+        } else {
+          computerScore++;
+          score.textContent = `You ${playerScore}:${computerScore} Computer`;
+          results();
+          roundResult1.textContent = "Computer: " + computerSelection;
+          roundResult2.textContent = "You: " + playerSelection;
+          roundResult3.textContent = "You lose. " + computerSelection + " beats " + playerSelection;
+      } 
     } 
 
     const rock = document.getElementById("rock");
