@@ -5,7 +5,7 @@ function getComputerChoice() {
         result = "Rock";
     } else if (random > 0.33 && random <= 0.66) {
         result = "Paper";
-    } else if (random <= 0.33) {
+    } else {
         result = "Scissors";
     }
     return result;
